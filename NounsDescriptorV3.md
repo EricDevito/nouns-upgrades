@@ -58,19 +58,34 @@ When updating traits, the contract ensures that the number of new images matches
 2. `NounsDescriptorV3`
 
    Implementation of the new update functions, including checks for consistency:
+   
+   ```diff
+   -    function backgroundCount() external view override returns (uint256);
+   -    function bodyCount() external view override returns (uint256);
+   -    function accessoryCount() external view override returns (uint256);
+   -    function headCount() external view override returns (uint256);
+   -    function glassesCount() external view override returns (uint256);
+
+   +    function backgroundCount() public view override returns (uint256);
+   +    function bodyCount() public view override returns (uint256);
+   +    function accessoryCount() public view override returns (uint256);
+   +    function headCount() public view override returns (uint256);
+   +    function glassesCount() public view override returns (uint256);
+
+   ```
 
    ```solidity
    function updateAccessories(bytes calldata encodedCompressed, uint80 decompressedLength, uint16 imageCount) external override onlyOwner whenPartsNotLocked {
-       uint256 count = art.accessoryCount();
-       require(count == imageCount, 'Image count must equal trait count');
-       art.updateAccessories(encodedCompressed, decompressedLength, imageCount);
+      uint256 originalCount = accessoryCount();
+      art.updateAccessories(encodedCompressed, decompressedLength, imageCount);
+      require(originalCount == accessoryCount(), 'Image count must remain the same');
    }
 
    // Similar implementations for updateBodies, updateHeads, updateGlasses,
    // updateAccessoriesFromPointer, updateBodiesFromPointer, updateHeadsFromPointer, and updateGlassesFromPointer
    ```
 
-3. `INounsArt`
+4. `INounsArt`
 
    New functions to support updating Nouns art traits:
 
