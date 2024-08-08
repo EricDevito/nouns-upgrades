@@ -85,7 +85,7 @@ When updating traits, the contract ensures that the number of new images matches
    // updateAccessoriesFromPointer, updateBodiesFromPointer, updateHeadsFromPointer, and updateGlassesFromPointer
    ```
 
-4. `INounsArt`
+3. `INounsArt`
 
    New functions to support updating Nouns art traits:
 
@@ -99,6 +99,51 @@ When updating traits, the contract ensures that the number of new images matches
    function updateBodiesFromPointer(address pointer, uint80 decompressedLength, uint16 imageCount) external;
    function updateHeadsFromPointer(address pointer, uint80 decompressedLength, uint16 imageCount) external;
    function updateGlassesFromPointer(address pointer, uint80 decompressedLength, uint16 imageCount) external;
+   ```
+
+   ```solidity
+    function updateAccessories(
+        bytes calldata encodedCompressed,
+        uint80 decompressedLength,
+        uint16 imageCount
+    ) external onlyDescriptor {
+        replaceTraitData(accessoriesTrait, encodedCompressed, decompressedLength, imageCount);
+
+        emit AccessoriesUpdated(imageCount);
+    }
+
+    function replaceTraitData(
+        Trait storage trait,
+        bytes calldata encodedCompressed,
+        uint80 decompressedLength,
+        uint16 imageCount
+    ) internal {
+        if (encodedCompressed.length == 0) {
+            revert EmptyBytes();
+        }
+        delete trait.storagePages;
+        delete trait.storedImagesCount;
+
+        addPage(trait, encodedCompressed, decompressedLength, imageCount);
+    }
+
+    function replaceTraitData(
+        Trait storage trait,
+        address pointer,
+        uint80 decompressedLength,
+        uint16 imageCount
+    ) internal {
+        if (decompressedLength == 0) {
+            revert BadDecompressedLength();
+        }
+        if (imageCount == 0) {
+            revert BadImageCount();
+        }
+        delete trait.storagePages;
+        delete trait.storedImagesCount;
+
+        addPage(trait, pointer, decompressedLength, imageCount);
+    }
    ```
 
 ### Implementation
