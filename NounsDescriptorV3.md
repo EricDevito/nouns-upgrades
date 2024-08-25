@@ -148,4 +148,25 @@ When updating traits, the contract ensures that the number of new images matches
 
 ### Implementation
 
-Not started.
+**Mainnet**
+
+| Contract | Address | Link |
+|----------|---------|------|
+| NFTDescriptorV2 | 0xdEdd7Ec3F440B19C627AE909D020ff037F618336 | [Etherscan](https://etherscan.io/address/0xdEdd7Ec3F440B19C627AE909D020ff037F618336) |
+| SVGRenderer | 0x535BD6533f165B880066A9B61e9C5001465F398C | [Etherscan](https://etherscan.io/address/0x535BD6533f165B880066A9B61e9C5001465F398C) |
+| NounsDescriptorV3 | 0x33A9c445fb4FB21f2c030A6b2d3e2F12D017BFAC | [Etherscan](https://etherscan.io/address/0x33A9c445fb4FB21f2c030A6b2d3e2F12D017BFAC) |
+| Inflator | 0x6c14b7aB60d81d5F734B873126493de2E52d3eee | [Etherscan](https://etherscan.io/address/0x6c14b7aB60d81d5F734B873126493de2E52d3eee) |
+| NounsArt | 0x6544bC8A0dE6ECe429F14840BA74611cA5098A92 | [Etherscan](https://etherscan.io/address/0x6544bC8A0dE6ECe429F14840BA74611cA5098A92) |
+
+**Sepolia**
+
+| Contract | Address | Link |
+|----------|---------|------|
+| NFTDescriptorV2 | 0x0ce4ed8bf0d2ae383ec014886df9191c3a224504 | [Etherscan](https://sepolia.etherscan.io/address/0x0ce4ed8bf0d2ae383ec014886df9191c3a224504) |
+| SVGRenderer | 0x3AC6e9B0edC93e0302204eFD86618250925B91a0 | [Etherscan](https://sepolia.etherscan.io/address/0x3AC6e9B0edC93e0302204eFD86618250925B91a0) |
+| NounsDescriptorV3 | 0x63fcb466fd59a7806370444ba82bba97d65754c2 | [Etherscan](https://sepolia.etherscan.io/address/0x63fcb466fd59a7806370444ba82bba97d65754c2) |
+| Inflator | 0x9A6a5cf5E0e47ed5cB272c413343Ff906bEb3bD1 | [Etherscan](https://sepolia.etherscan.io/address/0x9A6a5cf5E0e47ed5cB272c413343Ff906bEb3bD1) |
+| NounsArt | 0x512F8A614173844F223c3f490b0C87B5D49C81b9 | [Etherscan](https://sepolia.etherscan.io/address/0x512F8A614173844F223c3f490b0C87B5D49C81b9) |
+
+
+
